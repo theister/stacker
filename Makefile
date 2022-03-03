@@ -8,7 +8,7 @@ lint:
 	flake8 --ignore E402,N802,W605,N818 stacker/tests # ignore setUp naming
 
 test-unit: clean
-	python setup.py test
+	pytest
 
 clean:
 	rm -rf .egg stacker.egg-info build dist
@@ -23,7 +23,8 @@ apidocs:
 	sphinx-apidoc --force -o docs/api stacker
 
 build-wheel: clean test
-	python setup.py bdist_wheel
+	pip install -U build
+	python -m build --wheel
 
 compile-requirements:
 	pip install -U pip-tools
