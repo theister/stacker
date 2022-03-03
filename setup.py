@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-VERSION = "1.7.2"
+VERSION = "2.0.0rc1"
 
 src_dir = os.path.dirname(__file__)
 
@@ -11,7 +11,7 @@ def get_install_requirements(path):
 
 install_requires = get_install_requirements("requirements.in")
 
-setup_requires = ['pytest-runner']
+setup_requires = ["pytest-runner"]
 
 tests_require = get_install_requirements("test-requirements.in")
 
@@ -31,14 +31,14 @@ def read(filename):
 
 if __name__ == "__main__":
     setup(
-        name="stacker",
+        name="pinless-stacker",
         version=VERSION,
-        author="Michael Barrett",
-        author_email="loki77@gmail.com",
+        author="Till Heistermann",
+        author_email="theister@gmail.com",
         license="New BSD license",
-        url="https://github.com/cloudtools/stacker",
+        url="https://github.com/theister/pinless-stacker",
         description="AWS CloudFormation Stack manager",
-        long_description=read("README.rst"),
+        long_description=read("README.md"),
         packages=find_packages(),
         scripts=scripts,
         install_requires=install_requires,

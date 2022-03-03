@@ -1,10 +1,17 @@
 ## Upcoming release
 
+## pinless-stacker 2.0.0 (2022-03-03)
+
+- Fork off from mainline stacker to be able to do further maintenance.
+- Remove support for Python 2.7, 3.5 and 3.6 and relax requirement ranges
+
 ## 1.7.2 (2020-11-09)
+
 - address breaking moto change to awslambda [GH-763]
 - Added Python version validation before update kms decrypt output [GH-765]
 
 ## 1.7.1 (2020-08-17)
+
 - Fixing AMI lookup Key error on 'Name'
 - hooks: lambda: allow uploading pre-built payloads [GH-564]
 - Ensure that base64 lookup codec encodes the bytes object as a string [GH-742]

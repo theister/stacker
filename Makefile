@@ -1,4 +1,4 @@
-.PHONY: build lint test-unit test-functional test
+.PHONY: build lint test-unit test-functional test build-wheel compile-requirements
 
 build:
 	docker build -t remind101/stacker .
@@ -10,17 +10,22 @@ lint:
 test-unit: clean
 	python setup.py test
 
-test-unit3: clean
-	python3 setup.py test
-
 clean:
-	rm -rf .egg stacker.egg-info
+	rm -rf .egg stacker.egg-info build dist
 
 test-functional:
 	cd tests && bats test_suite
 
 # General testing target for most development.
-test: lint test-unit test-unit3
+test: lint test-unit
 
 apidocs:
 	sphinx-apidoc --force -o docs/api stacker
+
+build-wheel: clean test
+	python setup.py bdist_wheel
+
+compile-requirements:
+	pip install -U pip-tools
+	pip-compile requirements.in test-requirements.in -o requirements.txt
+	pip install -r requirements.txt

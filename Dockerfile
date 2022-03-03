@@ -1,8 +1,8 @@
-FROM python:2.7.10
+FROM python:3.9
 MAINTAINER Mike Barrett
 
 COPY scripts/docker-stacker /bin/docker-stacker
-RUN mkdir -p /stacks && pip install --upgrade pip setuptools
+RUN mkdir -p /stacks && pip install --upgrade pip setuptools wheel
 WORKDIR /stacks
 COPY . /tmp/stacker
 RUN pip install --upgrade pip
